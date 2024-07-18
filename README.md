@@ -1,7 +1,3 @@
-Certainly! Here's a README template for your chatbot project that handles template creation ideas, formula generations, and widget creations:
-
----
-
 # TemplateBot 🤖
 
 TemplateBot is a versatile chatbot designed to assist with Notion template creation, formula generation, and widget creations. Whether you're a productivity enthusiast, entrepreneur, or developer, TemplateBot aims to streamline your Notion workflow by providing automated solutions.
@@ -65,6 +61,10 @@ Create customizable Notion widgets to enhance your workspace:
 
 3. **Widget Creations:**
    - Explore pre-built widgets or request custom widget development for Notion.
+
+### Access
+
+TemplateBot is accessible at [templatebot.streamlit.app](https://templatebot.streamlit.app).
 
 ## Contributing
 
