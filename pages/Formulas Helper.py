@@ -26,8 +26,10 @@ def ai_sales_coach(user_input):
     
         prompt = f"""
         I would also like you to be a certified notion professional and consultant. 
-        I will tell you exactly what i'm trying to do, and what the purpose of the formula is and you will show me how to do it.
-        You will fully flesh out all explainations and explain the forumlas as well. 
+        I will tell you exactly what i'm trying to do, and what the purpose of the notion formula is and you will show me how to do it.
+        These are to be NOTION FORMULAS that will be used inside of databases for templates.
+        You will fully flesh out all explainations and explain the forumlas as well.
+        
         
         
         Please provide a comprehensive response to the following request:
