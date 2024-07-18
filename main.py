@@ -113,3 +113,5 @@ if prompt := st.chat_input("Your message"):
     st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
     st.session_state.messages.append({"role": "assistant", "content": "Type a message to continue."})
     
+    # Clear user input after sending message
+
