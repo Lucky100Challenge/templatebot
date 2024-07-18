@@ -4,7 +4,6 @@ from langchain_google_genai import GoogleGenerativeAI
 from dotenv import load_dotenv
 import os, sys, json
 
-
 # Load environment va   riables
 load_dotenv()
 
@@ -17,79 +16,29 @@ st.set_page_config(
     layout="wide",
 )
 
-with st.sidebar:
-    st.markdown(
-        """
-        # NotionHelper
-        Your AI Notion Assistant
-        """
-    )
-    st.markdown("---")  # Horizontal line
-    st.markdown("### Pages")
-    page = st.radio(
-        "Select a page",
-        ["Formulas", "Templates", "Widgets"],
-    )
 
-if page == "Formulas":
-    from pages.Formulas import ai_sales_coach
-    with st.expander("Instructions"):
-        st.markdown("### Instructions")
-        st.markdown(
-            """
-            1. Ask me anything about Notion formulas.
-            2. Type your message in the chat box below and press Enter.
-            3. I will provide you with the formula and explain how it works.",
-            """
-        )
-    st.markdown("---")  # Horizontal line
-    if "messages" not in st.session_state:
-        st.session_state.messages = []  # Initialize chat history
-        #clear chat history
-        st.session_state.messages = []
-        # Welcome message
-        st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
-elif page == "Templates":
-    from pages.Templates import ai_sales_coach
-    with st.expander("Instructions"):
-        st.markdown("### Instructions")
-        st.markdown(
-            """
-            1. Ask me anything about Notion templates.
-            2. Type your message in the chat box below and press Enter.
-            3. I will guide you on how to create the template.",
-            """
-        )
-    st.markdown("---")
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-        st.session_state.messages = []
-        st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
-elif page == "Widgets":
-    from pages.Widgets import ai_sales_coach
-    with st.expander("Instructions"):
-        st.markdown("### Instructions")
-        st.markdown(
-            """
-            1. Ask me anything about Notion widgets.
-            2. Type your message in the chat box below and press Enter.
-            3. I will guide you on how to create the widget.",
-            """
-        )
-    st.markdown("---")
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-        st.session_state.messages = []
-        st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
-        
+def ai_sales_coach(user_input):
+        {user_input}
+        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+        return llm.invoke(prompt)
+
+
+# Don't show Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = []  # Initialize chat history
+    #clear chat history
+    st.session_state.messages = []
+    # Welcome message
+    st.session_state.messages.append({"role": "assistant", "content": "Welcome, let's chat. Or pick a expertise to get started."})
+
+
 # Display chat messages
 with st.container():  # Use container for styling
     for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
-
+                
 # User Input
-
 if prompt := st.chat_input("Your message"):
     # Append user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -111,7 +60,6 @@ if prompt := st.chat_input("Your message"):
     
     # Clear user input after sending message
     st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
-    st.session_state.messages.append({"role": "assistant", "content": "Type a message to continue."})
     
-    # Clear user input after sending message
-
+    
+  
