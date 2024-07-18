@@ -33,10 +33,7 @@ if "messages" not in st.session_state:
 
 
 # Display chat messages
-with st.container():  # Use container for styling
-    for message in st.session_state.messages:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+
                 
 # User Input
 if prompt := st.chat_input("Your message"):
