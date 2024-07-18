@@ -29,4 +29,22 @@ helper = st.radio(
     index=0,
 )
 
+
+#Helper selection
+if helper == "Formulas":
+    #show Formulas page
+    import pages.Formulas as page
+    page.main()
+elif helper == "Widgets":
+    #show Widgets page
+    import pages.Widgets as page
+    page.main()
+elif helper == "Templates":
+    #show Templates page
+    import pages.Templates as page
+    page.main()
+else:
+    st.error("Invalid helper selected. Please try again.")
+    st.stop()
     
+# Don't show Chat Histor
