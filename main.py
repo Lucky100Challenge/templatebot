@@ -17,6 +17,15 @@ st.set_page_config(
     layout="wide",
 )
 
+with st.expander("Instructions"):
+    st.markdown("### Instructions")
+    st.markdown(
+        """
+        1. Ask me anything about Notion widgets.
+        2. Type your message in the chat box below and press Enter.
+        3. I will provide you with the html, css, and javascript code for the widget.",
+        """
+    )
 
 def ai_sales_coach(user_input):
     if not user_input:
@@ -26,7 +35,8 @@ def ai_sales_coach(user_input):
     else:
     
         prompt = f"""
-        I would like you to act as a professional web developer; your job will be to design notion widgets out of HTML, CSS, and JavaScript. 
+        I would like you to act as a professional web developer; your job will be to design notion widgets out of HTML, Tailwind CSS, and JavaScript.
+        They need to be modern, sleek and professional widgets.
         I require each code to be in separate files. 
         We will be using them to embed within a notion page
       
@@ -78,9 +88,9 @@ if prompt := st.chat_input("Your message"):
     response = ai_sales_coach(prompt)
     message_placeholder.markdown(response)  # Update the placeholder
     st.session_state.messages.append({"role": "assistant", "content": response})
-    
-    # Clear user input after sending message
-    st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
+
+
+
     
     
   
