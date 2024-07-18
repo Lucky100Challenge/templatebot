@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_google_genai import GoogleGenerativeAI
 from dotenv import load_dotenv
 import os, sys, json
-import fpdf as FPDF
+import subprocess 
 
 # Load environment va   riables
 load_dotenv()
@@ -59,15 +59,12 @@ with st.sidebar:
         st.session_state.messages.append({"role": "assistant", "content": "Chat history cleared."})
     #line
     st.markdown("---")
-    #save chat history to file as pdf
-    if st.button("Save Chat History"):
-        pdf = FPDF.FPDF(format='letter')
-        pdf.add_page()
-        pdf.set_font("Arial", size=12)
-        for message in st.session_state.messages:
-            pdf.cell(200, 10, txt=message["content"], ln=True)
-        pdf.output("chat_history.pdf")
-        st.success("Chat history saved as PDF.")
+    #Copy assistant response to clipboard
+    if st.button("Copy Assistant Response"):
+        response = st.session_state.messages[-1]["content"]
+        subprocess.run(f"echo '{response}' | pbcopy", shell=True)
+        st.info("Assistant response copied to clipboard.")
+        
 
 # Don't show Chat History
 if "messages" not in st.session_state:

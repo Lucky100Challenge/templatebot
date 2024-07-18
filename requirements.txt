@@ -10,6 +10,6 @@ streamlit-folium
 extra_streamlit_components
 streamlit-elements
 streamlit-tailwind
-fpdf
+pyperclip
 streamlit-navigation-bar
 fb_streamlit_auth
