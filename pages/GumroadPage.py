@@ -61,6 +61,7 @@ with st.sidebar:
     st.markdown("---")
     #save chat history to file as pdf
     if st.button("Save Chat History"):
+        pdf = FPDF.FPDF(format='letter')
         pdf.add_page()
         pdf.set_font("Arial", size = 15)
         for message in st.session_state.messages:
