@@ -45,6 +45,13 @@ with st.container():  # Use container for styling
 if prompt := st.chat_input("Your message"):
     # Append user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
+                
+# User Input
+if prompt := st.chat_input("Your message"):
+    # Append user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    
     
 
     # Display "Sales Coach is typing..."

@@ -50,6 +50,11 @@ with st.expander("Instructions"):
         """
     )
     
+with st.sidebar:
+    #clear chat history
+    if st.button("Clear Chat History"):
+        st.session_state.messages = []
+    
 # Don't show Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Initialize chat history

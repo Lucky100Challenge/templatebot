@@ -55,7 +55,7 @@ with st.sidebar:
     #clear chat history
     if st.button("Clear Chat History"):
         st.session_state.messages = []
-        
+    
 # Don't show Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Initialize chat history
@@ -76,6 +76,9 @@ if prompt := st.chat_input("Your message"):
     # Append user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     
+    # Display user message
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):
@@ -87,9 +90,12 @@ if prompt := st.chat_input("Your message"):
     response = ai_sales_coach(prompt)
     message_placeholder.markdown(response)  # Update the placeholder
     st.session_state.messages.append({"role": "assistant", "content": response})
-
-
-
+    
+    # Clear user input after sending message
+    st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
+    
+    
+  
     
     
   

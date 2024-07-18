@@ -62,11 +62,11 @@ with st.sidebar:
     if st.button("Save Chat History"):
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font("Arial", size = 12)
+        pdf.set_font("Arial", size = 15)
         for message in st.session_state.messages:
             pdf.cell(200, 10, txt = message["content"], ln = True, align = 'L')
-        pdf.output("chat_history.pdf")
-        st.session_state.messages.append({"role": "assistant", "content": "Chat history saved as PDF."})
+            
+        pdf.output("gumroad_chat_history.pdf")
 
 # Don't show Chat History
 if "messages" not in st.session_state:
@@ -89,8 +89,8 @@ if prompt := st.chat_input("Your message"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     
     # Display user message
-    #with st.chat_message("user"):
-        #st.markdown(prompt)
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):

@@ -53,7 +53,19 @@ with st.sidebar:
     #clear chat history
     if st.button("Clear Chat History"):
         st.session_state.messages = []
-    
+        st.session_state.messages.append({"role": "assistant", "content": "Chat history cleared."})
+    #line
+    st.markdown("---")
+    #save chat history to file as pdf
+    if st.button("Save Chat History"):
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size = 15)
+        for message in st.session_state.messages:
+            pdf.cell(200, 10, txt = message["content"], ln = True, align = 'L')
+            
+        pdf.output("gumroad_chat_history.pdf")
+
 # Don't show Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Initialize chat history
@@ -91,6 +103,3 @@ if prompt := st.chat_input("Your message"):
     
     # Clear user input after sending message
     st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
-    
-    
-  
