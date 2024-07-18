@@ -49,8 +49,6 @@ with st.expander("Instructions"):
         3. I will provide you with the html, css, and javascript code for the widget.",
         """
     )
-st.markdown("---")  # Horizontal line
-    
 with st.sidebar:
     #clear chat history
     if st.button("Clear Chat History"):

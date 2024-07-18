@@ -3,6 +3,7 @@ import streamlit as st
 from langchain_google_genai import GoogleGenerativeAI
 from dotenv import load_dotenv
 import os, sys, json
+from fpdf import FPDF
 
 # Load environment va   riables
 load_dotenv()
@@ -16,23 +17,35 @@ st.set_page_config(
     layout="wide",
 )
 
+
+
+def ai_sales_coach(user_input):
+    if not user_input:
+        return "Please provide a valid question or request."
+    elif "help" in user_input:
+        return "I'm here to help you with any questions you have about Notion. How can I assist you today?"
+    else:
+    
+        prompt = f"""
+        
+        {user_input}
+        """
+        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+        return llm.invoke(prompt)
+
+
 with st.sidebar:
     #clear chat history
     if st.button("Clear Chat History"):
-        st.session_state.messages = [] 
-        
-def ai_sales_coach(user_input):
-        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
-        return llm.invoke(user_input)
-
-
+        st.session_state.messages = []
+    
 # Don't show Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Initialize chat history
     #clear chat history
     st.session_state.messages = []
     # Welcome message
-    st.session_state.messages.append({"role": "assistant", "content": "Welcome, let's chat. Or pick a expertise to get started."})
+    st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
 
 
 # Display chat messages
@@ -45,14 +58,10 @@ with st.container():  # Use container for styling
 if prompt := st.chat_input("Your message"):
     # Append user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-                
-# User Input
-if prompt := st.chat_input("Your message"):
-    # Append user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
     
-    
-    
+    # Display user message
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):
@@ -67,6 +76,9 @@ if prompt := st.chat_input("Your message"):
     
     # Clear user input after sending message
     st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
+    
+    
+  
     
     
   

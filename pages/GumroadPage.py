@@ -57,13 +57,6 @@ with st.sidebar:
     if st.button("Clear Chat History"):
         st.session_state.messages = []
         st.session_state.messages.append({"role": "assistant", "content": "Chat history cleared."})
-    #line
-    st.markdown("---")
-    #Copy assistant response to clipboard
-    if st.button("Copy Assistant Response"):
-        response = st.session_state.messages[-1]["content"]
-        subprocess.run(f"echo '{response}' | pbcopy", shell=True)
-        st.info("Assistant response copied to clipboard.")
         
 
 # Don't show Chat History
