@@ -72,9 +72,6 @@ if prompt := st.chat_input("Your message"):
     # Append user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     
-    # Display user message
-    with st.chat_message("user"):
-        st.markdown(prompt)
 
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):
