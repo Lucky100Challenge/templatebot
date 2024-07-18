@@ -38,8 +38,15 @@ def ai_sales_coach(user_input):
 
 
 # UI Title
-st.markdown("## NotionHelper - Your AI Notion Assistant")
-st.markdown("### Ask me anything about Notion Templates and I will help you with the best possible answer!")
+with st.expander("Instructions"):
+    st.markdown("### Instructions")
+    st.markdown(
+        """
+        1. Ask me anything about Notion templates.
+        2. Type your message in the chat box below and press Enter.
+        3. I will guide you on how to create the template.",
+        """
+    )
 st.markdown("---")  # Horizontal line
     
     

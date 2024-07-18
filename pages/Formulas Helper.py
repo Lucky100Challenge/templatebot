@@ -40,10 +40,15 @@ def ai_sales_coach(user_input):
 
 
 # UI Title
-st.markdown("## NotionHelper - Your AI Notion Assistant")
-st.markdown("### Ask me anything about Notion Formulas and I will help you with the best possible answer!")
-st.markdown("---")  # Horizontal line
-    
+with st.expander("Instructions"):
+    st.markdown("### Instructions")
+    st.markdown(
+        """
+        1. Ask me anything about Notion formulas.
+        2. Type your message in the chat box below and press Enter.
+        3. I will provide you with the formula and explain how it works.",
+        """
+    )
     
 # Don't show Chat History
 if "messages" not in st.session_state:
