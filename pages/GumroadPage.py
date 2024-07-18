@@ -61,13 +61,13 @@ with st.sidebar:
     st.markdown("---")
     #save chat history to file as pdf
     if st.button("Save Chat History"):
-        pdf = FPDF.FPDF(format='letter')
+        pdf = FPDF()
         pdf.add_page()
-        pdf.set_font("Arial", size = 15)
+        pdf.set_font("Arial", size=12)
         for message in st.session_state.messages:
-            pdf.cell(200, 10, txt = message["content"], ln = True, align = 'L')
-            
-        pdf.output("gumroad_chat_history.pdf")
+            pdf.cell(200, 10, txt=message["content"], ln=True)
+        pdf.output("chat_history.pdf")
+        st.success("Chat history saved as PDF.")
 
 # Don't show Chat History
 if "messages" not in st.session_state:
