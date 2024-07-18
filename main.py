@@ -22,9 +22,8 @@ with st.sidebar:
         st.session_state.messages = [] 
         
 def ai_sales_coach(user_input):
-        {user_input}
         llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
-        return llm.invoke(prompt)
+        return llm.invoke(user_input)
 
 
 # Don't show Chat History
