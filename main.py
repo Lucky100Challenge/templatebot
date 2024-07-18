@@ -29,20 +29,4 @@ helper = st.radio(
     index=0,
 )
 
-# Load the selected helper
-if helper == "Formulas":
-    from pages.Formulas import ai_sales_coach
-
-    ai_sales_coach()
-elif helper == "Widgets":
-    from pages.Widgets import ai_sales_coach
-
-    ai_sales_coach()
-elif helper == "Templates":
-    from pages.Templates import ai_sales_coach
-
-    ai_sales_coach()
-else:
-    st.error("Invalid helper selected. Please select a valid helper.")
-
     
