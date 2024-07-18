@@ -4,7 +4,6 @@ from langchain_google_genai import GoogleGenerativeAI
 from dotenv import load_dotenv
 import os, sys, json
 import fpdf as FPDF
-pdf = FPDF()
 
 # Load environment va   riables
 load_dotenv()
