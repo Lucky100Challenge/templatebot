@@ -17,15 +17,7 @@ st.set_page_config(
     layout="wide",
 )
 
-with st.expander("Instructions"):
-    st.markdown("### Instructions")
-    st.markdown(
-        """
-        1. Ask me anything about Notion widgets.
-        2. Type your message in the chat box below and press Enter.
-        3. I will provide you with the html, css, and javascript code for the widget.",
-        """
-    )
+
 
 def ai_sales_coach(user_input):
     if not user_input:
@@ -48,9 +40,15 @@ def ai_sales_coach(user_input):
         return llm.invoke(prompt)
 
 
-# UI Title
-st.markdown("## NotionHelper - Your AI Notion Widgets Assistant")
-st.markdown("### Ask me anything about Notion and I will help you with the best possible answer!")
+with st.expander("Instructions"):
+    st.markdown("### Instructions")
+    st.markdown(
+        """
+        1. Ask me anything about Notion widgets.
+        2. Type your message in the chat box below and press Enter.
+        3. I will provide you with the html, css, and javascript code for the widget.",
+        """
+    )
 st.markdown("---")  # Horizontal line
     
     
