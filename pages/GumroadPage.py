@@ -45,12 +45,17 @@ with st.expander("Instructions"):
     st.markdown("### Instructions")
     st.markdown(
         """
-        1. Ask me anything about Notion formulas.
+        1. Tell me about your product and it's features.
         2. Type your message in the chat box below and press Enter.
-        3. I will provide you with the formula and explain how it works.",
+        3. I will provide you with a sales page for your Gumroad product.",
         """
     )
     
+with st.sidebar:
+    #clear chat history
+    if st.button("Clear Chat History"):
+        st.session_state.messages = []
+
 # Don't show Chat History
 if "messages" not in st.session_state:
     st.session_state.messages = []  # Initialize chat history
@@ -72,8 +77,8 @@ if prompt := st.chat_input("Your message"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     
     # Display user message
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    #with st.chat_message("user"):
+        #st.markdown(prompt)
 
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):
