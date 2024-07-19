@@ -10,6 +10,6 @@ streamlit-folium
 extra_streamlit_components
 streamlit-elements
 streamlit-tailwind
-pyperclip
+GoogleBard
 streamlit-navigation-bar
 fb_streamlit_auth
