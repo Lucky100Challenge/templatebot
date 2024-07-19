@@ -45,7 +45,7 @@ with st.expander("Instructions"):
         """
         1. Ask me anything about your target audience.
         2. Type your message in the chat box below and press Enter.
-        3. I will provide you with a detailed analysis of your target audience's fears, frustrations, short-term wants, and long-term aspirations.",
+        3. I will provide you with a detailed analysis of your target audience's fears, frustrations, short-term wants, and long-term aspirations.
         """
     )
 with st.sidebar:
