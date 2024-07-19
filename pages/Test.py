@@ -25,7 +25,7 @@ st.button('Add Task', on_click=add_task)
 # Display tasks
 for i, task in enumerate(st.session_state.tasks):
     col1, col2, col3 = st.columns([1, 5, 1])
-    col1.checkbox('', value=task['completed'], on_change=toggle_task, args=(i,))
+    col1.checkbox('', value=task['completed'], on_change=toggle_task, args=(i,), key=f'checkbox_{i}')
     if task['completed']:
         col2.markdown(f"~~{task['task']}~~")
     else:
