@@ -59,7 +59,7 @@ if "messages" not in st.session_state:
     #clear chat history
     st.session_state.messages = []
     # Welcome message
-    st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
+    st.session_state.messages.append({"role": "assistant", "content": "Welcome! I'm here to help you with any questions you have about your target audience."})
 
 
 # Display chat messages
