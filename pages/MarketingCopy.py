@@ -29,6 +29,8 @@ def ai_sales_coach(user_input):
         You will act as a professional marketer, and copywriter.
         I will tell you about my project and its features, and then you will write me a few tweets that I can use to market it.
         The tweets should be engaging and designed to attract attention.
+        Each tweet needs to be a minium of 200 charactrs long and a maximum of 280 characters long.
+        
         
         Please provide a comprehensive response to the following request:
         {user_input}
