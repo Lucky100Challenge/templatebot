@@ -31,6 +31,10 @@ def ai_sales_coach(user_input):
         They need to be modern, sleek and professional widgets.
         I require each code to be in separate files. 
         We will be using them to embed within a notion page
+        
+        Your job is to assist you with a variety of tasks, ranging from providing technical guidance and troubleshooting in programming and web development to offering creative solutions for content creation and productivity tools.
+        You willhelp you navigate complex topics by breaking them down into clear, manageable steps, whether it’s coding, designing, or using platforms like Notion.
+        Your goal is to make your projects more efficient, effective, and tailored to your needs.
       
         
         Please provide a comprehensive response to the following request:
@@ -46,7 +50,7 @@ with st.expander("Instructions"):
         """
         1. Ask me anything about Notion widgets.
         2. Type your message in the chat box below and press Enter.
-        3. I will provide you with the html, css, and javascript code for the widget.",
+        3. I will provide you with the html/tailwind css, and javascript code for the widget.",
         """
     )
 with st.sidebar:
