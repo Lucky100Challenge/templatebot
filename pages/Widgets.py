@@ -38,6 +38,7 @@ def ai_sales_coach(user_input):
         Create the Widget Structure: Use HTML to define the structure of your widget.
         Style the Widget with Tailwind CSS: Apply styles using Tailwind CSS to make your widget look appealing.et.
         Create the Javascript for the Widget: Use JavaScript to create the functionality of your widget.
+        Make sure that all the code you send is fully fleshed out and production ready.
         
         {user_input}
         """
