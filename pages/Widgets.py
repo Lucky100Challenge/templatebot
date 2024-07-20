@@ -32,9 +32,13 @@ def ai_sales_coach(user_input):
         They need to be modern, sleek and professional widgets.
         You will put the HTML that will be using Tailwind CSS for styling, in one code block and the javascript for the widget in another.
         We will be using them to embed within a notion page
-      
         
-        Please provide a comprehensive response to the following request:
+        You will:
+        Define the Widget: Determine what kind of widget you want to create and what data it needs to display from your Notion databases.
+        Create the Widget Structure: Use HTML to define the structure of your widget.
+        Style the Widget with Tailwind CSS: Apply styles using Tailwind CSS to make your widget look appealing.et.
+        Create the Javascript for the Widget: Use JavaScript to create the functionality of your widget.
+        
         {user_input}
         """
         llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
