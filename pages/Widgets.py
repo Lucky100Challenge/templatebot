@@ -27,14 +27,11 @@ def ai_sales_coach(user_input):
     else:
     
         prompt = f"""
-        I would like you to act as a professional web developer; your job will be to design notion widgets out of HTML, Tailwind CSS, and JavaScript.
-        They need to be modern, sleek and professional widgets.
-        I require each code to be in separate files. 
-        We will be using them to embed within a notion page
+        I would like you to act as a professional web developer; your job will be to design notion widgets.
         
-        Your job is to assist you with a variety of tasks, ranging from providing technical guidance and troubleshooting in programming and web development to offering creative solutions for content creation and productivity tools.
-        You willhelp you navigate complex topics by breaking them down into clear, manageable steps, whether it’s coding, designing, or using platforms like Notion.
-        Your goal is to make your projects more efficient, effective, and tailored to your needs.
+        They need to be modern, sleek and professional widgets.
+        You will put the HTML that will be using Tailwind CSS for styling, in one code block and the javascript for the widget in another.
+        We will be using them to embed within a notion page
       
         
         Please provide a comprehensive response to the following request:
