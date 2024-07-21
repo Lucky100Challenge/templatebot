@@ -20,13 +20,7 @@ st.set_page_config(
 
 
 def ai_sales_coach(user_input):
-    if not user_input:
-        return "Please provide a valid question or request."
-    elif "help" in user_input:
-        return "I'm here to help you with any questions you have about Notion. How can I assist you today?"
-    else:
-    
-        prompt = f"""
+    prompt = f"""
         I would like you to act as a professional web developer; your job will be to design notion widgets.
         
         They need to be modern, sleek and professional widgets.
@@ -42,8 +36,8 @@ def ai_sales_coach(user_input):
         
         {user_input}
         """
-        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
-        return llm.invoke(prompt)
+    llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+    return llm.invoke(prompt)
 
 
 with st.expander("Instructions"):

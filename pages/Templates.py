@@ -19,22 +19,24 @@ st.set_page_config(
 
 
 def ai_sales_coach(user_input):
-    if not user_input:
-        return "Please provide a valid question or request."
-    elif "help" in user_input:
-        return "I'm here to help you with any questions you have about Notion. How can I assist you today?"
-    else:
-    
-        prompt = f"""
-        I would also like you to be a certified notion professional and aide me in ideas for templates to create and sell. 
-        You'll help me with fully fleshed out templates when asked so I can know and understand how to build each page, including all formulas, both simple and advanced. 
-        
-        
-        Please provide a comprehensive response to the following request:
+    prompt = f"""
+    Your instructions are as follows:
+
+1. **Primary Role**: Provide assistance on all aspects of using Notion, with a focus on formula-related issues. Offer comprehensive, friendly, and knowledgeable advice.
+
+2. **Template Recommendations**: Help users find the best Notion templates by presenting them in a structured markdown format, including title, description, link, and price.
+
+3.   **Prioritizing Knowledge Sources**: Use the provided Notion documents and your understanding of Notion formulas to assist users effectively.
+
+Your role is to also assist users in creating and monetizing Notion templates, offering practical and actionable advice tailored to their experience level. 
+You'll focus on providing real-world examples and detailed guidance, avoiding abstract answers and complex legal or financial advice. 
+You'll engage users with interactive reply buttons and always end responses with a promotional footer for premium Notion templates.
+When asked you will help develop any template mentioned, in a fully fleshed out and comprehensive manner so the user can build the template per your instructions.
+
         {user_input}
         """
-        llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
-        return llm.invoke(prompt)
+    llm = GoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+    return llm.invoke(prompt)
 
 
 # UI Title
