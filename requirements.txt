@@ -10,6 +10,5 @@ streamlit-folium
 extra_streamlit_components
 streamlit-elements
 streamlit-tailwind
-GoogleBard
-streamlit-navigation-bar
-fb_streamlit_auth
+streamlit==1.23.1
+requests==2.31.0
