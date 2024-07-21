@@ -32,8 +32,8 @@ if login_button:
         st.success("Login successful!")
         
         # Display contents of chatter.py
-        if os.path.exists('chatter.py'):
-            with open('chatter.py', 'r') as f:
+        if os.path.exists('Chatter.py'):
+            with open('Chatter.py', 'r') as f:
                 chatter_code = f.read()
             st.code(chatter_code, language='python')
         else:
