@@ -39,12 +39,16 @@ with st.sidebar:
     if st.button("Clear Chat History"):
         st.session_state.messages = []
     
-
+# Don't show Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = []  # Initialize chat history
+    #clear chat history
     st.session_state.messages = []
     # Welcome message
     st.session_state.messages.append({"role": "assistant", "content": "Welcome! Type a message to get started."})
 
 
+# Display chat messages
 with st.container():  # Use container for styling
     for message in st.session_state.messages:
             with st.chat_message(message["role"]):
@@ -62,20 +66,13 @@ if prompt := st.chat_input("Your message"):
     # Display "Sales Coach is typing..."
     with st.chat_message("assistant"):
         message_placeholder = st.empty() 
-        message_placeholder.markdown("Sales Coach is typing...")
+        message_placeholder.markdown("Assstiant is typing...")
 
     # Get and append AI response (with a delay to simulate typing)
     time.sleep(1)  # Adjust the delay as needed
-    if response.contains("sales coach"):
-        response = "I'm here to help! What do you need assistance with today?"
-    else:
-        response = ai_sales_coach(prompt)
-    
-        st.session_state.messages = []
     response = ai_sales_coach(prompt)
     message_placeholder.markdown(response)  # Update the placeholder
     st.session_state.messages.append({"role": "assistant", "content": response})
-  
     
-    
-  
+    # Clear user input after sending message
+    st.session_state.messages = st.session_state.messages[-100:]  # Limit chat history to last 100 messages
