@@ -10,5 +10,4 @@ streamlit-folium
 extra_streamlit_components
 streamlit-elements
 streamlit-tailwind
-streamlit==1.23.1
-requests==2.31.0
+streamlit
