@@ -72,6 +72,7 @@ with st.container():  # Use container for styling
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
                 
+                
 # User Input
 if prompt := st.chat_input("Your message"):
     # Append user message to chat history
